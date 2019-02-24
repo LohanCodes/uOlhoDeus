@@ -1,5 +1,6 @@
 package com.lohancodes.olhodeus;
 
+import com.google.common.collect.Lists;
 import com.lohancodes.olhodeus.commands.GiveOlhoCommand;
 import com.lohancodes.olhodeus.listeners.OlhoListeners;
 import com.lohancodes.olhodeus.utilities.ActionBarAPI;
@@ -55,11 +56,7 @@ public class OlhoDeus extends JavaPlugin {
         String name = getInstance().getConfig().getString("Item.Nome").replace("&", "§");
         boolean glow = getInstance().getConfig().getBoolean("Item.Glow");
 
-        List<String> list = getInstance().getConfig().getStringList("Item.Lore");
-        List<String> lore = new ArrayList<>();
-        for (String s : list) {
-            lore.add(s.replace("&", "§"));
-        }
+        List<String> lore = Lists.transform(getInstance().getConfig().getStringList("Item.Lore"), l -> l.replace('&', '§'));
 
         ItemStack item = new ItemStack(Material.getMaterial(material), 1, (short) data);
         ItemMeta meta = item.getItemMeta();
