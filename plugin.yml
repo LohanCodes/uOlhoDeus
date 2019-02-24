@@ -1,0 +1,6 @@
+main: com.lohancodes.olhodeus.OlhoDeus
+name: uOlhoDeus
+version: 1.0
+author: LohanCodes
+commands:
+  giveolho:
